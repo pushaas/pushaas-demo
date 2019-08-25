@@ -5,6 +5,12 @@ clear
 printf "Hello, welcome to the pushaas demo\n"
 printf "\n"
 
+if [ ! -f ".vars" ]; then
+  printf "You did not create the '.vars' file, please read the instructions on README.md\n"
+  exit 1
+fi
+. .vars
+
 printf "Please read:\n"
 printf "* make sure you have the Tsuru CLI installed. This demo was tested with version 1.7.1, but any 1.7 should be fine\n"
 printf "* if you need to install it, please head to https://docs.tsuru.io/stable/using/install-client.html\n"
@@ -21,18 +27,16 @@ while true; do
 done
 printf "\n"
 
-printf "Enter the Tsuru target URL you received: "
-read URL
 printf "Adding the new Tsuru target\n"
-tsuru target-add pushaas-demo $URL -s
+tsuru target-add pushaas-demo $TSURU_TARGET_URL -s
 printf "\n"
 
 printf "You will now login to the new Tsuru target. Enter the credentials you received\n"
-tsuru login
+tsuru login $USERNAME
 printf "\n"
 
 SUFFIX=$(hexdump -n 4 -v -e '/1 "%02X"' /dev/urandom | awk '{print tolower($0)}')
-echo "SUFFIX=$SUFFIX" >> .vars
+echo "SUFFIX=\"$SUFFIX\"" >> .vars
 
 printf "Setup is done, please run the other scripts in order and follow the instructions they will output\n"
 printf "\n"

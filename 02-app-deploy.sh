@@ -7,5 +7,7 @@ read
 
 . .vars
 APP_NAME="push-service-demo-$SUFFIX"
+
+rm -fr push-service-demo-app
 git clone git@github.com:pushaas/push-service-demo-app.git
 cd push-service-demo-app && git pull && tsuru app-deploy -a $APP_NAME .

@@ -1,7 +1,8 @@
 #!/bin/sh
 
-echo "Let's check the logs"
-echo "NOTE: now it is expected that the error about the missing variables won't show up anymore"
+echo "Let's check the logs again."
+echo
+echo "NOTE: the errors should not appear anymore."
 echo
 echo "Press enter TWICE to continue..."
 read

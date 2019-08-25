@@ -7,4 +7,8 @@ read
 
 . .vars
 APP_NAME="push-service-demo-$SUFFIX"
-tsuru app-create $APP_NAME nodejs -t pushaas-team -o theonepool -d 'An instance of the push-service-demo-app'
+
+tsuru app-create $APP_NAME nodejs -t developers -o theonepool -d 'An instance of the push-service-demo-app'
+
+echo "You can now see your app with 'tsuru app-list' or 'tsuru app-info -a $APP_NAME'"
+echo
