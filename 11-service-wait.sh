@@ -1,6 +1,6 @@
 #!/bin/sh
 
-echo "Now we wait for the service to go up. This script pings it with 1 second interval."
+echo "Now we wait for the service to go up. This script will continously check the service status."
 echo
 
 . .vars
@@ -9,10 +9,10 @@ SERVICE_INSTANCE_NAME="push-$SUFFIX"
 
 while true
 do
-  sleep 1
   STATUS_LINE=$(tsuru service-instance-info pushaas $SERVICE_INSTANCE_NAME | grep "Status: Service instance")
   echo $STATUS_LINE
   if [[ $STATUS_LINE == *"is pending"* ]]; then
+    sleep 10
     continue
   fi
   if [[ $STATUS_LINE == *"is up"* ]]; then

@@ -27,3 +27,5 @@ cd pushaas-demo
 1. run the scripts in this project in order (`00-...`, `01-...`, ...). Please read carefully the scripts outputs, they will guide you step-by-step on what to do
 
 1. some steps expect error messages to be shown (like on your application log). When an error message is expected, the script will explicitly say so
+
+1. in case you need to re-run, run from the `00-setup.sh` script, in order to generate a new suffix for your app and services and avoid clashing

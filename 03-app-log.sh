@@ -16,4 +16,4 @@ read
 
 . .vars
 APP_NAME="push-service-demo-$SUFFIX"
-tsuru app-log -a $APP_NAME -l 100 -f
+tsuru app-log -a $APP_NAME -l 1000 -f
