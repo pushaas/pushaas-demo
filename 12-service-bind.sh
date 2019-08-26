@@ -13,6 +13,9 @@ echo
 
 APP_NAME="push-service-demo-$SUFFIX"
 SERVICE_INSTANCE_NAME="push-$SUFFIX"
-COMMAND="tsuru service-instance-bind pushaas $SERVICE_INSTANCE_NAME -a $APP_NAME --no-restart"
+COMMAND="tsuru service-instance-bind pushaas $SERVICE_INSTANCE_NAME -a $APP_NAME"
 
 echo "$ $COMMAND"
+echo
+echo "After the bind is done, the app will restart automatically and the required"
+echo "environment variables will be present (set by Tsuru after the bind)."

@@ -15,3 +15,4 @@ SERVICE_INSTANCE_NAME="push-$SUFFIX"
 COMMAND="tsuru service-instance-add pushaas $SERVICE_INSTANCE_NAME small -t developers -d 'My push service instance'"
 
 echo "$ $COMMAND"
+echo
