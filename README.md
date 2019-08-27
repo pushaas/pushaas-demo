@@ -28,11 +28,12 @@ PASSWORD="<some password>"
 1. clone this repository:
 
 ```shell
-git clone git@github.com:pushaas/pushaas-demo.git
+git clone https://github.com/pushaas/pushaas-demo.git
 cd pushaas-demo
+touch .vars
 ```
 
-1. create a file called `.vars` (already on `.gitignore`) and paste into it the first 3 environment variables you received (`TSURU_TARGET_URL`, `TSURU_POOL_IP` and `USERNAME`). You can paste `PASSWORD` if you want to keep it there, but it will not be used from the file, you will be asked later to type it manually.
+1. the previous step created a file called `.vars` (already on `.gitignore`). Paste into it the first 3 environment variables you received (`TSURU_TARGET_URL`, `TSURU_POOL_IP` and `USERNAME`). Do not paste the `PASSWORD`, you will be asked later to type it manually.
 
 1. run the scripts in this project in order (`00-...`, `01-...`, ...). Please read carefully the scripts outputs, they will guide you step-by-step on what to do
 

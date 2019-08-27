@@ -36,6 +36,7 @@ tsuru login $USERNAME
 printf "\n"
 
 SUFFIX=$(hexdump -n 4 -v -e '/1 "%02X"' /dev/urandom | awk '{print tolower($0)}')
+echo "" >> .vars
 echo "SUFFIX=\"$SUFFIX\"" >> .vars
 
 printf "Setup is done, please run the other scripts in order and follow the instructions they will output\n"
