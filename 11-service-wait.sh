@@ -2,6 +2,8 @@
 
 echo "Now we wait for the service to go up. This script will continously check the service status."
 echo
+echo "This should take 2-3 minutes. All the 4 Push Service components are being provisioned."
+echo
 
 . .vars
 
