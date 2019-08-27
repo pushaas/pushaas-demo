@@ -4,6 +4,16 @@ This is a collection of simple scripts in order to demonstrate how the PushaaS s
 
 Running these scripts only will work if a maintainer of PushaaS gives you sample credentials, so this is not intended for general audience.
 
+## overview
+
+Following this demo, you will:
+- create an application on Tsuru and deploy some code to your application
+- test the application working *without* the Push Service
+- create a Push Service instance and bind it to your application
+- test the application working *with* the Push Service
+- (hopefully) destroy all created resources
+
+
 ## running the demo
 
 1. who is invited to run the demo will receive some environment variables like the following:
