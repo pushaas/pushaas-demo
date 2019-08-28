@@ -25,7 +25,6 @@ while true; do
 done
 printf "\n"
 
-printf "Adding the new Tsuru target\n"
 tsuru target-add pushaas-demo $TSURU_TARGET_URL -s > /dev/null
 printf "\n"
 
