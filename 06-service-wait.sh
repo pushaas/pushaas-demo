@@ -1,8 +1,7 @@
-#!/bin/sh
+#!/bin/bash
 
-echo "Now we wait for the service to go up. This script will continously check the service status."
-echo
-echo "This should take 2-3 minutes. All the 4 Push Service components are being provisioned."
+echo "Wait for the service to go up"
+echo "  - this should take 2-3 minutes."
 echo
 
 . .vars
@@ -22,7 +21,7 @@ do
     break
   fi
   if [[ $STATUS_LINE == *"is down"* ]]; then
-    echo "Some problem happend. This is not expected behavior"
+    echo "Some problem happend. THIS IS NOT EXPECTED BEHAVIOR"
     break
   fi
 done

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "The app is running with limited funcionality, because you have not started the Push Service yet"
+echo "The app is running with full funcionality"
 echo
 
 . .vars

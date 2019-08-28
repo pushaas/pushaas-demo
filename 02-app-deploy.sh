@@ -1,8 +1,10 @@
-#!/bin/sh
+#!/bin/bash
 
-echo "This will clone https://github.com/pushaas/push-service-demo-app and deploy it to your Tsuru app"
+echo "Let's:"
+echo "  - clone the code https://github.com/pushaas/push-service-demo-app"
+echo "  - deploy it to your Tsuru app"
 echo
-echo "Press enter to continue..."
+echo "(press enter...)"
 read
 
 . .vars

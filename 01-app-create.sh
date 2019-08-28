@@ -1,14 +1,13 @@
-#!/bin/sh
+#!/bin/bash
 
-echo "This will create a demo app for you on the Tsuru cluster"
+echo "Let's create a demo app on Tsuru (press enter...)"
 echo
-echo "Press enter to continue..."
 read
 
 . .vars
 APP_NAME="push-service-demo-$SUFFIX"
 
-tsuru app-create $APP_NAME nodejs -t developers -o theonepool -d 'An instance of the push-service-demo-app'
+set -e
+tsuru app-create $APP_NAME nodejs -t developers -o theonepool -d 'An instance of the push-service-demo-app' > /dev/null
 
-echo "You can now see your app with 'tsuru app-list' or 'tsuru app-info -a $APP_NAME'"
-echo
+echo "App created: $APP_NAME"
