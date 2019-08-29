@@ -44,9 +44,3 @@ This demo:
 1. in case of an unexpected error, contact a maintainer.
 
 1. NOTE: **some errors are expected** (on your application log). When an error message is expected, the script will explicitly say so.
-
-1. NOTE: the scripts:
-  - `05-service-create.sh`
-  - `07-service-bind.sh`
-
-  **will output commands for you to run, instead of running themselves**. This is because these are the only 2 commands specific to the Push Service, se you will run them to better understand what is specific to the Push Service.

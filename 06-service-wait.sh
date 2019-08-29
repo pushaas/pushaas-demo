@@ -10,7 +10,7 @@ SERVICE_INSTANCE_NAME="push-$SUFFIX"
 
 while true
 do
-  STATUS_LINE=$(tsuru service-instance-info pushaas $SERVICE_INSTANCE_NAME | grep "Status: Service instance")
+  STATUS_LINE=$(tsuru service-instance-info pushaas $SERVICE_INSTANCE_NAME | grep "Service instance")
   echo $STATUS_LINE
   if [[ $STATUS_LINE == *"is pending"* ]]; then
     sleep 10

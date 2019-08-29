@@ -25,6 +25,12 @@ while true; do
 done
 printf "\n"
 
+PREVIOUS_TARGET=$(tsuru target-list | grep "*" | awk -F " " '{print $2}')
+if [ ! -z "$PREVIOUS_TARGET" ]; then
+  echo "" >> .vars
+  echo "PREVIOUS_TARGET=\"$PREVIOUS_TARGET\"" >> .vars
+fi
+
 tsuru target-add pushaas-demo $TSURU_TARGET_URL -s > /dev/null
 printf "\n"
 
@@ -38,4 +44,4 @@ SUFFIX=$(hexdump -n 4 -v -e '/1 "%02X"' /dev/urandom | awk '{print tolower($0)}'
 echo "" >> .vars
 echo "SUFFIX=\"$SUFFIX\"" >> .vars
 
-printf "Done! Run the other scripts in order and follow the instructions they will output\n"
+printf "Setup is done!\n"
