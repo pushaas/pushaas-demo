@@ -1,19 +1,28 @@
 #!/bin/bash
 
-echo "Let's create the Push Service instance"
-echo "  - this is the first (of two) commands needed to use the Push Service"
-echo
+##################
+# before
+##################
+. .utils.sh
 
-. .vars
-
-
-SERVICE_INSTANCE_NAME="push-$SUFFIX"
+set -e
+SERVICE_INSTANCE_NAME=$(serviceInstanceName)
 COMMAND="tsuru service-instance-add pushaas $SERVICE_INSTANCE_NAME small -t developers -d 'My push service instance'"
 
-echo "We will run:"
-echo "$ $COMMAND"
-echo
-echo "(press enter...)"
-read
+printScriptPart
+printItem "create the Push Service instance"
+printSubitem "this is the first (of two) commands needed to use the Push Service"
+printSubitem "the command is: $COMMAND"
+waitEnter
 
+##################
+# do
+##################
 bash -c "$COMMAND > /dev/null"
+
+##################
+# after
+##################
+printUserPart
+printUserPartContinue
+echo

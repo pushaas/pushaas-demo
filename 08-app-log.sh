@@ -1,12 +1,25 @@
 #!/bin/bash
 
-echo "The app was deployed. Let's check the logs"
-echo "  - NOTE: no errors are expected this time"
+##################
+# before
+##################
+. .utils.sh
+printScriptPart
+printItem "show your application logs"
+printSubitem "no errors are expected this time"
+waitEnter
 
-echo
-echo "(press enter...)"
-read
-
-. .vars
-APP_NAME="push-service-demo-$SUFFIX"
+##################
+# do
+##################
+set -e
+APP_NAME=$(appName)
 tsuru app-log -a $APP_NAME -l 1000 | grep "checkEnv\|checkServices" | tail -n 8
+
+##################
+# after
+##################
+printUserPart
+printItem "read the logs above"
+printUserPartContinue
+echo

@@ -1,12 +1,19 @@
 #!/bin/bash
 
-echo "Wait for the service to go up"
-echo "  - this should take 2-3 minutes."
-echo
+##################
+# before
+##################
+. .utils.sh
+printScriptPart
+printItem "wait for the service instance to go up"
+printSubitem "it should take 2-3 after you run the script that created the service instance"
+waitEnter
 
-. .vars
-
-SERVICE_INSTANCE_NAME="push-$SUFFIX"
+##################
+# do
+##################
+set -e
+SERVICE_INSTANCE_NAME=$(serviceInstanceName)
 
 while true
 do
@@ -17,11 +24,21 @@ do
     continue
   fi
   if [[ $STATUS_LINE == *"is up"* ]]; then
+    ##################
+    # after
+    ##################
     echo "Service is up!"
+    printUserPart
+    printUserPartContinue
     break
   fi
   if [[ $STATUS_LINE == *"is down"* ]]; then
+    ##################
+    # after
+    ##################
     echo "Some problem happend. THIS IS NOT EXPECTED BEHAVIOR"
+    printUserPart
+    printItem "contact the PushaaS maintainer"
     break
   fi
 done

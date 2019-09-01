@@ -1,20 +1,30 @@
 #!/bin/bash
 
-echo "Let's bind your Push Service instance to your app"
-echo "  - this is the last (of two) commands to use the Push Service"
-echo "  - this will define the vars your app needs"
-echo
+##################
+# before
+##################
+. .utils.sh
 
-. .vars
-
-APP_NAME="push-service-demo-$SUFFIX"
-SERVICE_INSTANCE_NAME="push-$SUFFIX"
+set -e
+APP_NAME=$(appName)
+SERVICE_INSTANCE_NAME=$(serviceInstanceName)
 COMMAND="tsuru service-instance-bind pushaas $SERVICE_INSTANCE_NAME -a $APP_NAME"
 
-echo "We will run:"
-echo "$ $COMMAND"
-echo
-echo "(press enter...)"
-read
+printScriptPart
+printItem "bind your Push Service instance to your app"
+printSubitem "this is the last (of two) commands to use the Push Service"
+printSubitem "this will define the vars your app needs and restart the app"
+printSubitem "the command is: $COMMAND"
+waitEnter
 
+##################
+# do
+##################
 bash -c "$COMMAND > /dev/null"
+
+##################
+# after
+##################
+printUserPart
+printUserPartContinue
+echo
