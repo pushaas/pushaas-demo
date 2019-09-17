@@ -6,7 +6,7 @@
 . .utils.sh
 printScriptPart
 printItem "wait for the service instance to go up"
-printSubitem "it should take 2-3 after you run the script that created the service instance"
+printSubitem "it should take 2-3 minutes after you run the script that created the service instance"
 waitEnter
 
 ##################
@@ -36,7 +36,7 @@ do
     ##################
     # after
     ##################
-    echo "Some problem happend. THIS IS NOT EXPECTED BEHAVIOR"
+    echo "Some problem happened. THIS IS NOT EXPECTED BEHAVIOR"
     printUserPart
     printItem "contact the PushaaS maintainer"
     break
